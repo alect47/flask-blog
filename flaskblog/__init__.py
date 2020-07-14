@@ -12,5 +12,9 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
+app.congig['MAIL_SERVER'] = 'smtp.googleemail.com'
+app.congig['MAIL_PORT'] = 587
+app.congig['MAIL_USER_TLS'] = True
+
 
 from flaskblog import routes
