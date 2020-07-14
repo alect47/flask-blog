@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -15,6 +16,10 @@ login_manager.login_message_category = 'info'
 app.congig['MAIL_SERVER'] = 'smtp.googleemail.com'
 app.congig['MAIL_PORT'] = 587
 app.congig['MAIL_USER_TLS'] = True
+app.congig['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+app.congig['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+mail = Mail(app)
+
 
 
 from flaskblog import routes
